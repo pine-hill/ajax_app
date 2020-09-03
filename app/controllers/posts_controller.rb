@@ -6,8 +6,8 @@ class PostsController < ApplicationController
   def create
     #contentはテーブルのカラム名
     #paramsはリクエストパラメータ→contentが格納されている
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    post = Post.create(content: params[:content], checked: false)
+    render json:{post: post }
     #post = Post.new(content: params[:content])
     #post.saveでも可
   end
